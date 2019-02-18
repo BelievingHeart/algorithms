@@ -14,11 +14,21 @@ public:
         std::copy(indecies.begin(), indecies.end(), std::back_inserter(weights));
     }
 
-    size_t getRoot(size_t index) const{
+    size_t getRoot(size_t index) {
+        auto index_query = index;
         while (index != indecies[index]) {
             index = indecies[index];
         }
+        while (index != indecies[index_query]) {
+            index_query = indecies[index_query];
+            indecies[index_query] = index;
+        }
+
         return index;
+    }
+
+    size_t getParent(size_t index){
+        return indecies[index];
     }
 
     bool connect(size_t index_a, size_t index_b){
@@ -34,7 +44,7 @@ public:
         return unionSuccess;
     }
 
-    bool is_connected(size_t index_a, size_t index_b) const{
+    bool is_connected(size_t index_a, size_t index_b) {
         return this->getRoot(index_a) == this->getRoot(index_b);
     }
 
@@ -52,4 +62,5 @@ int main(){
 
     assert(quickUnion.getRoot(5) == 2 and quickUnion.getRoot(1) == 2 and quickUnion.getRoot(3) == 2);
     assert(quickUnion.getRoot(4) == 0 and quickUnion.getRoot(6) == 0 and quickUnion.getRoot(0) == 0);
+    assert(quickUnion.getParent(5) == 2);
 }
