@@ -12,6 +12,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
 
 add_executable(merge_sort merge_sort.cpp)
+add_executable(quick_sort quick_sort.cpp)
 
 ## opencv
 #set(CUDA_TOOLKIT_ROOT_DIR "/usr/local/cuda-10.0")
@@ -27,9 +28,9 @@ add_executable(merge_sort merge_sort.cpp)
 #target_link_libraries(main PRIVATE ${OpenCV_LIBS})
 
 # fmt
-set(fmt_DIR "~/clones/fmt/build-release")
-find_package(fmt REQUIRED CONFIG)
-target_link_libraries(merge_sort PRIVATE fmt::fmt)
+#set(fmt_DIR "~/clones/fmt/build-release")
+#find_package(fmt REQUIRED CONFIG)
+#target_link_libraries(merge_sort PRIVATE fmt::fmt)
 
 # qt
 #if(APPLE)
