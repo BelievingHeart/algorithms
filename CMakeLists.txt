@@ -13,6 +13,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
 
 add_executable(merge_sort merge_sort.cpp)
 add_executable(quick_sort quick_sort.cpp)
+add_executable(quick_union quick_union.cpp)
 
 ## opencv
 #set(CUDA_TOOLKIT_ROOT_DIR "/usr/local/cuda-10.0")
